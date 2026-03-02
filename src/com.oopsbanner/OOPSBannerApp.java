@@ -1,16 +1,15 @@
-// UC4 implementation using array and loop
 public class OOPSBannerApp {
     public static void main(String[] args) {
-        // Store all banner lines in a String array
+        // UC5: Combine array declaration and initialization with String.join()
         String[] bannerLines = {
-            " *****    *****   ******   ***** ",
-            "*     *  *     *  *     *  *     *",
-            "*     *  *     *  *     *  *     *",
-            "*     *  *     *  *     *  *     *",
-            "*     *  *     *  ******    ****  ",
-            "*     *  *     *  *              *",
-            "*     *  *     *  *              *",
-            " *****    *****   *          *****"
+            String.join("", " *****    *****   ******   ***** "),
+            String.join("", "*     *  *     *  *     *  *     *"),
+            String.join("", "*     *  *     *  *     *  *     *"),
+            String.join("", "*     *  *     *  *     *  *     *"),
+            String.join("", "*     *  *     *  ******    ****  "),
+            String.join("", "*     *  *     *  *              *"),
+            String.join("", "*     *  *     *  *              *"),
+            String.join("", " *****    *****   *          *****")
         };
 
         // Loop through the array and print each line
