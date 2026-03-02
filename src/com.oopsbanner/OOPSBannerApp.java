@@ -1,8 +1,26 @@
+//UC8
 public class OOPSBannerApp {
 
-    // Static method to return the "O" pattern
-    public static String[] getO() {
-        return new String[]{
+    // Static inner class to store character patterns
+    static class CharacterPattern {
+        private char character;
+        private String[] pattern;
+
+        // Constructor
+        public CharacterPattern(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
+
+        // Getter for the pattern
+        public String[] getPattern() {
+            return pattern;
+        }
+    }
+
+    public static void main(String[] args) {
+        // Create pattern objects for O, P, S
+        CharacterPattern O = new CharacterPattern('O', new String[]{
             " ***** ",
             "*     *",
             "*     *",
@@ -10,12 +28,9 @@ public class OOPSBannerApp {
             "*     *",
             "*     *",
             " ***** "
-        };
-    }
+        });
 
-    // Static method to return the "P" pattern
-    public static String[] getP() {
-        return new String[]{
+        CharacterPattern P = new CharacterPattern('P', new String[]{
             "****** ",
             "*     *",
             "*     *",
@@ -23,12 +38,9 @@ public class OOPSBannerApp {
             "*      ",
             "*      ",
             "*      "
-        };
-    }
+        });
 
-    // Static method to return the "S" pattern
-    public static String[] getS() {
-        return new String[]{
+        CharacterPattern S = new CharacterPattern('S', new String[]{
             " ***** ",
             "*      ",
             "*      ",
@@ -36,18 +48,15 @@ public class OOPSBannerApp {
             "      *",
             "      *",
             " ***** "
-        };
-    }
+        });
 
-    public static void main(String[] args) {
-        // Build the banner by combining letters using their static methods
-        String[] o = getO();
-        String[] p = getP();
-        String[] s = getS();
+        // Build the OOPS banner using the patterns
+        String[] oPattern = O.getPattern();
+        String[] pPattern = P.getPattern();
+        String[] sPattern = S.getPattern();
 
-        // Loop through each line of the banner
-        for (int i = 0; i < o.length; i++) {
-            System.out.println(o[i] + "  " + o[i] + "  " + p[i] + "  " + s[i]);
+        for (int i = 0; i < oPattern.length; i++) {
+            System.out.println(oPattern[i] + "  " + oPattern[i] + "  " + pPattern[i] + "  " + sPattern[i]);
         }
     }
 }
