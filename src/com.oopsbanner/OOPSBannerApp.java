@@ -1,26 +1,15 @@
-//UC8
+//UC
+import java.util.HashMap;
+import java.util.Map;
+
 public class OOPSBannerApp {
 
-    // Static inner class to store character patterns
-    static class CharacterPattern {
-        private char character;
-        private String[] pattern;
-
-        // Constructor
-        public CharacterPattern(char character, String[] pattern) {
-            this.character = character;
-            this.pattern = pattern;
-        }
-
-        // Getter for the pattern
-        public String[] getPattern() {
-            return pattern;
-        }
-    }
-
     public static void main(String[] args) {
-        // Create pattern objects for O, P, S
-        CharacterPattern O = new CharacterPattern('O', new String[]{
+        // Create a map to store character patterns
+        Map<Character, String[]> charPatterns = new HashMap<>();
+
+        // Add patterns for O, P, S
+        charPatterns.put('O', new String[]{
             " ***** ",
             "*     *",
             "*     *",
@@ -30,7 +19,7 @@ public class OOPSBannerApp {
             " ***** "
         });
 
-        CharacterPattern P = new CharacterPattern('P', new String[]{
+        charPatterns.put('P', new String[]{
             "****** ",
             "*     *",
             "*     *",
@@ -40,7 +29,7 @@ public class OOPSBannerApp {
             "*      "
         });
 
-        CharacterPattern S = new CharacterPattern('S', new String[]{
+        charPatterns.put('S', new String[]{
             " ***** ",
             "*      ",
             "*      ",
@@ -50,13 +39,16 @@ public class OOPSBannerApp {
             " ***** "
         });
 
-        // Build the OOPS banner using the patterns
-        String[] oPattern = O.getPattern();
-        String[] pPattern = P.getPattern();
-        String[] sPattern = S.getPattern();
+        // The word to render
+        String word = "OOPS";
 
-        for (int i = 0; i < oPattern.length; i++) {
-            System.out.println(oPattern[i] + "  " + oPattern[i] + "  " + pPattern[i] + "  " + sPattern[i]);
+        // Render banner
+        for (int i = 0; i < 7; i++) { // 7 lines per letter
+            StringBuilder line = new StringBuilder();
+            for (char c : word.toCharArray()) {
+                line.append(charPatterns.get(c)[i]).append("  "); // Append pattern line
+            }
+            System.out.println(line);
         }
     }
 }
